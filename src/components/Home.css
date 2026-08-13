@@ -1,0 +1,225 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.home-header {
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.home-title {
+  font-family: var(--font-kr);
+  font-size: 3.5rem;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 50%, var(--primary-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+  text-shadow: 0 0 30px rgba(241, 196, 15, 0.3);
+}
+
+.home-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  font-family: var(--font-kr);
+  letter-spacing: 1px;
+}
+
+.mascot-container {
+  margin-bottom: 30px;
+  position: relative;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mascot {
+  font-size: 80px;
+  user-select: none;
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
+}
+
+.progress-banner {
+  background: var(--space-card);
+  border: 1px solid var(--border-glass);
+  border-radius: 20px;
+  padding: 15px 30px;
+  margin-bottom: 40px;
+  width: 100%;
+  max-width: 600px;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-main);
+  animation: pulse-glow 3s infinite;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.progress-title {
+  font-size: 1.1rem;
+  color: var(--accent-light);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.progress-bar-bg {
+  background: rgba(255, 255, 255, 0.1);
+  height: 16px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar-fill {
+  background: linear-gradient(90deg, var(--primary-light) 0%, var(--accent) 100%);
+  height: 100%;
+  border-radius: 8px;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.menu-card {
+  background: var(--space-card);
+  border: 2px solid var(--border-glass);
+  border-radius: 24px;
+  padding: 30px 20px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  box-shadow: var(--shadow-main);
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.menu-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--primary-light);
+  box-shadow: var(--shadow-glow);
+}
+
+.menu-card:hover::before {
+  opacity: 1;
+}
+
+.menu-card.learn:hover {
+  border-color: var(--primary-light);
+  box-shadow: 0 0 25px rgba(165, 94, 234, 0.4);
+}
+
+.menu-card.quiz:hover {
+  border-color: var(--secondary-light);
+  box-shadow: 0 0 25px rgba(255, 118, 117, 0.4);
+}
+
+.menu-card.sticker:hover {
+  border-color: var(--accent-light);
+  box-shadow: 0 0 25px rgba(241, 196, 15, 0.4);
+}
+
+.menu-card.note:hover {
+  border-color: var(--success);
+  box-shadow: 0 0 25px rgba(46, 204, 113, 0.4);
+}
+
+.menu-icon-wrapper {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  transition: transform 0.3s ease;
+}
+
+.menu-card:hover .menu-icon-wrapper {
+  transform: scale(1.15) rotate(5deg);
+}
+
+.menu-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.menu-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text-white);
+}
+
+.menu-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.badge-count {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--secondary);
+  color: white;
+  border-radius: 12px;
+  padding: 3px 10px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 600px) {
+  .menu-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .home-title {
+    font-size: 2.5rem;
+  }
+  
+  .home-subtitle {
+    font-size: 1rem;
+  }
+  
+  .mascot {
+    font-size: 60px;
+  }
+}

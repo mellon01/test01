@@ -1,0 +1,297 @@
+.learn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  animation: popIn 0.4s ease-out forwards;
+}
+
+.learn-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.back-btn {
+  background: var(--space-card);
+  border: 1px solid var(--border-glass);
+  padding: 10px 20px;
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-kr);
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+  background: var(--primary);
+  border-color: var(--primary-light);
+  transform: translateX(-3px);
+}
+
+.learn-title {
+  font-size: 2rem;
+  color: var(--text-white);
+  font-family: var(--font-kr);
+  text-shadow: 0 0 10px rgba(142, 68, 173, 0.5);
+}
+
+/* Dan Selector Tabs */
+.dan-selector {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 30px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 12px;
+  border-radius: 20px;
+  border: 1px solid var(--border-glass);
+}
+
+.dan-tab {
+  background: var(--space-light);
+  border: 1px solid var(--border-glass);
+  border-radius: 15px;
+  width: 55px;
+  height: 55px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--text-white);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.dan-tab:hover {
+  transform: translateY(-5px) scale(1.05);
+  background: var(--primary);
+  border-color: var(--primary-light);
+}
+
+.dan-tab.active {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-glow);
+  transform: scale(1.1);
+}
+
+.dan-tab-sticker {
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  font-size: 0.9rem;
+  background: rgba(0,0,0,0.5);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Main Display Layout */
+.learn-content {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 30px;
+  width: 100%;
+}
+
+/* Left Column: Equations List */
+.equations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--space-card);
+  border: 1px solid var(--border-glass);
+  border-radius: 24px;
+  padding: 20px;
+  max-height: 550px;
+  overflow-y: auto;
+  backdrop-filter: blur(10px);
+}
+
+.equation-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid transparent;
+  border-radius: 16px;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.equation-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(5px);
+}
+
+.equation-card.active {
+  background: linear-gradient(90deg, rgba(142, 68, 173, 0.4) 0%, rgba(165, 94, 234, 0.2) 100%);
+  border-color: var(--primary-light);
+  box-shadow: 0 4px 15px rgba(142, 68, 173, 0.2);
+}
+
+.eq-left {
+  font-size: 1.4rem;
+  color: var(--text-white);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.eq-right {
+  font-size: 1.8rem;
+  color: var(--accent);
+  font-weight: 900;
+}
+
+.speaker-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.speaker-btn:hover {
+  color: var(--accent);
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.equation-card.active .speaker-btn {
+  color: var(--accent-light);
+}
+
+/* Right Column: Visualization Visualizer */
+.visualizer-panel {
+  background: var(--space-card);
+  border: 1px solid var(--border-glass);
+  border-radius: 24px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 480px;
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+.visualizer-title {
+  font-size: 1.6rem;
+  color: var(--accent-light);
+  margin-bottom: 20px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.visualizer-desc {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 25px;
+}
+
+.visualizer-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.bundle-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 15px;
+  border-radius: 20px;
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  width: 100%;
+  position: relative;
+}
+
+.bundle-row::before {
+  content: attr(data-bundle-index);
+  position: absolute;
+  top: -10px;
+  left: 15px;
+  background: var(--primary);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.item-dot {
+  font-size: 2.2rem;
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  transition: transform 0.2s ease;
+  user-select: none;
+}
+
+.item-dot:hover {
+  transform: scale(1.3) rotate(15deg);
+}
+
+.tts-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  background: rgba(255,255,255,0.05);
+  padding: 10px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+  border: 1px solid var(--border-glass);
+  transition: all 0.2s ease;
+}
+
+.tts-bar:hover {
+  background: var(--primary);
+  box-shadow: var(--shadow-glow);
+}
+
+.tts-text {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+@media (max-width: 800px) {
+  .learn-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .equations-list {
+    max-height: 320px;
+  }
+}

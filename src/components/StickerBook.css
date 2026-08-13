@@ -1,0 +1,226 @@
+.sticker-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  animation: popIn 0.4s ease-out forwards;
+}
+
+.sticker-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.sticker-title {
+  font-size: 2rem;
+  color: var(--text-white);
+  font-family: var(--font-kr);
+  text-shadow: 0 0 10px rgba(241, 196, 15, 0.4);
+}
+
+.progress-summary {
+  font-size: 1.15rem;
+  color: var(--accent-light);
+  margin-bottom: 25px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 10px 25px;
+  border-radius: 15px;
+  border: 1px solid var(--border-glass);
+}
+
+.sticker-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.sticker-card {
+  background: var(--space-card);
+  border: 2px solid var(--border-glass);
+  border-radius: 24px;
+  padding: 25px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: var(--shadow-main);
+}
+
+.sticker-card.earned {
+  cursor: pointer;
+}
+
+.sticker-card.earned:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: var(--shadow-glow);
+}
+
+.sticker-card.locked {
+  opacity: 0.65;
+  filter: grayscale(80%);
+  background: rgba(15, 12, 32, 0.3);
+}
+
+.sticker-emoji-wrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.2rem;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.sticker-card.earned:hover .sticker-emoji-wrapper {
+  transform: scale(1.15) rotate(10deg);
+}
+
+.sticker-card.locked .sticker-emoji-wrapper {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.lock-overlay {
+  position: absolute;
+  font-size: 1.2rem;
+  color: #ff7675;
+  background: rgba(0, 0, 0, 0.6);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0;
+  right: 0;
+  border: 1px solid var(--border-glass);
+}
+
+.sticker-info {
+  text-align: center;
+}
+
+.sticker-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 4px;
+}
+
+.sticker-dan-tag {
+  font-size: 0.85rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+.sticker-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 5px;
+}
+
+/* Speech Bubble / Mascot Popover */
+.speech-bubble-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 12, 32, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.3s ease-out;
+}
+
+.speech-modal {
+  background: var(--space-light);
+  border: 2px solid var(--accent);
+  border-radius: 28px;
+  padding: 35px;
+  width: 90%;
+  max-width: 450px;
+  text-align: center;
+  position: relative;
+  box-shadow: var(--shadow-gold);
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.speech-emoji {
+  font-size: 5rem;
+  margin-bottom: 15px;
+  display: inline-block;
+  animation: float 3s ease-in-out infinite;
+}
+
+.speech-char-name {
+  font-size: 1.5rem;
+  color: var(--accent-light);
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.speech-text-box {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 18px;
+  padding: 20px;
+  color: white;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.reset-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.reset-btn {
+  background: transparent;
+  border: 1px solid var(--danger);
+  color: var(--secondary-light);
+  padding: 8px 18px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.reset-btn:hover {
+  background: var(--danger);
+  color: white;
+  box-shadow: 0 0 10px rgba(231, 76, 60, 0.3);
+}
+
+@media (max-width: 800px) {
+  .sticker-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sticker-grid {
+    grid-template-columns: 1fr;
+  }
+}
